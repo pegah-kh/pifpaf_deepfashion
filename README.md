@@ -1,6 +1,7 @@
 ## LANDMARK LOCALIZATION FOR A FASHION DATASET: A PIFPAF PLUGIN
 
 This repository is the code for [*Category classification and landmark localization for a fashion dataset*](https://drive.google.com/drive/folders/1jqvd6CmmyKQaodJAdwPNVwH92M9YC9tg?usp=sharing).
+The project is a part of an internship I did at VITA Lab, EPFL.
 
 ![Alt Text](visualizations/clothing_landmark.gif)
 
