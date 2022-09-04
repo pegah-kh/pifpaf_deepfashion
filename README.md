@@ -5,6 +5,9 @@ This repository is the code for [*Category classification and landmark localizat
 ![Alt Text](visualizations/clothing_landmark.gif)
 
 
+
+
+
 ### Requirements for converting deepfashion to a coco style dataset
 
 First of all, download deepfashion-c (category classification and attribute prediction) dataset from [dedicated drive](https://drive.google.com/drive/folders/0B7EVK8r0v71pQ2FuZ0k0QnhBQnc?resourcekey=0-NWldFxSChFuCpK4nzAIGsg). In our training we used low resolution images. Create a folder for all the dataset files and put in it:
