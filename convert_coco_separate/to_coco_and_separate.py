@@ -10,7 +10,7 @@ from  constants import DEEPFASHION_KEYPOINTS, DEEPFASHION_SKELETON
 import shutil
 
 # this code uses the annotations from the attribute and category detection task
-parser = argparse.ArgumentParser(description='DeppFashion 2 COCO :)')
+parser = argparse.ArgumentParser(description='DeepFashion 2 COCO :)')
 parser.add_argument('--dataset-root', help='root of the deepfashion dataset', default='')
 parser.add_argument('--root-save', help='root where to save the json', default='')
 args = parser.parse_args()
@@ -45,8 +45,8 @@ class convert_deepfashion_to_coco:
         # end separate
         self.initiate_json()
 
-        landmark_annofile = deepfashion_root + 'Anno/list_landmarks.txt'
-        category_bboxfile = deepfashion_root + 'Anno/list_bbox.txt'
+        landmark_annofile = os.path.join(deepfashion_root,'Anno/list_landmarks.txt')
+        category_bboxfile = os.path.join(deepfashion_root,'Anno/list_bbox.txt')
         print('category path ', category_bboxfile)
         
         
@@ -67,9 +67,10 @@ class convert_deepfashion_to_coco:
         for idx in shuffle_idx:
             count += 1
             im_name = '%.6d.png' % idx
-            output_path = deepfashion_root + 'whathappening.txt' # => the path seems to be right!!
+            '''output_path = deepfashion_root + 'whathappening.txt' # => the path seems to be right!!
             with open(output_path, 'a') as f:
                 json.dump(im_name, f)
+            '''
             # bboxs[idx].split(' ')[0] is the number of images
             assert bboxs[idx].split(' ')[0] == landmarks[idx].split(' ')[0]
 
@@ -212,7 +213,7 @@ class convert_deepfashion_to_coco:
                         'width': width,
                         'height': height}
                         )
-        new_file = root_save + '/' + datatype + "_annotations_MSCOCO_style.json"
+        new_file = os.path.join(root_save, datatype + "_annotations_MSCOCO_style.json")
         with open(new_file, 'w') as f:
             json.dump(self.json_file, f)
 
@@ -228,7 +229,7 @@ if __name__ == '__main__':
     num_valid = 89000
     num_train = 289222 - 89000
     '''
-    img_partition = deepfashion_root + 'Eval/list_eval_partition.txt'
+    img_partition = os.path.join(deepfashion_root, 'Eval/list_eval_partition.txt')
     partitions = open(img_partition).readlines()[2:]
     index_train = []
     index_eval = []
